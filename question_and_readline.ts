@@ -1,9 +1,12 @@
 import process from "node:process";
 import readline from "node:readline";
 
-
-// 定义一个异步的question_and_readline函数，该函数接收一个字符串参数arg0，并返回一个Promise<string>。
-
+/**
+ * // 定义一个异步的question_and_readline函数，该函数接收一个字符串参数arg0，并返回一个Promise<string>。
+ * 这个函数是一个异步函数，它创建一个readline接口实例，通过调用rl.question方法向用户提问，并等待用户输入。当用户输入完成后，函数解析Promise并返回用户输入的内容。
+ * @param arg0
+ * @returns
+ */
 export function question_and_readline(arg0: string): Promise<string> {
     // 创建一个readline接口实例。
     const rl = readline.createInterface({

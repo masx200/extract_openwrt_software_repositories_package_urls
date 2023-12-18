@@ -1,5 +1,10 @@
 import { fetch_debug } from "./fetch_debug.ts";
-
+/**
+ * 这个typescript函数是一个异步函数，它向指定的rpcurl发送JSON-RPC请求。它将data和rpcurl作为参数，并使用fetch_debug函数发送HTTP POST请求。如果响应状态不是200，则抛出错误。如果响应的content-type不是application/json-rpc，则抛出错误。否则，返回响应的json数据。
+ * @param data
+ * @param rpcurl
+ * @returns
+ */
 
 export async function requestjsonrpc(data: Array<Object>, rpcurl: string) {
     const response = await fetch_debug(rpcurl, {

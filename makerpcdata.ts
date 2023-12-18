@@ -1,6 +1,13 @@
+/**
+ * 这个函数用于创建RPC数据，它接受一个文件URL列表和一个目录名作为参数，并返回一个包含文件URL的RPC数据对象的数组。每个RPC数据对象包含jsonrpc、method、id和params属性，其中params属性是一个数组，包含一个URL、一个包含请求头、目录名、分片大小和最大并发连接数的对象。
+ * @param fileurls
+ *
+ * @param directoryname
+ * @returns
+ */
 export function makerpcdata(
     fileurls: string[],
-    directoryname: string
+    directoryname: string,
 ): Array<Object> {
     const data = fileurls.map((url) => {
         const origin = new URL(url).origin + "/";
