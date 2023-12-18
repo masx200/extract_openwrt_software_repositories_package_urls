@@ -7,26 +7,34 @@ export function show_help() {
             {
                 name: "download_openwrt_software_repositories",
                 description: "download_openwrt_software_repositories",
-                usage:
+                usages: [
                     `deno run -A "C:/\Documents/\extract_openwrt_-software_repositories_package_urls/\download_openwrt_software_repositories.ts"  --rpcurl=http://localhost:16800/jsonrpc --repositories_url=https://downloads.openwrt.org/releases/23.05.2/targets/ramips/mt7621/packages/ --download_folder=C:/openwrt软件包镜像源/releases/23.05.2/targets/ramips/mt7621/packages/`,
+                ],
                 arguments: {
-                    help: { description: "show help", required: false },
+                    help: {
+                        description: "show help",
+                        required: false,
+                        type: "boolean",
+                    },
                     rpcurl: {
                         description: "aria2 json rpc url",
                         required: true,
+                        type: "string",
                     },
                     repositories_url: {
                         description: "openwrt repositories url",
                         required: true,
+                        type: "string",
                     },
                     download_folder: {
                         description: "download folder ",
                         required: true,
+                        type: "string",
                     },
                 },
             },
             null,
-            4,
-        ),
+            4
+        )
     );
 }
