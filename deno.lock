@@ -1,9 +1,28 @@
 {
   "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:@masx200/mini-cli-args-parser@1.1.0": "npm:@masx200/mini-cli-args-parser@1.1.0",
+      "npm:@types/node": "npm:@types/node@18.16.19"
+    },
+    "npm": {
+      "@masx200/mini-cli-args-parser@1.1.0": {
+        "integrity": "sha512-aq0dBwLttIBQxqbQ1xUNq3SwI0fZqLArZKhQYNnOrUyiCf8BR9kTjl7sWLIN//ozZrLD19z8aAxPfdZdx1siCA==",
+        "dependencies": {}
+      },
+      "@types/node@18.16.19": {
+        "integrity": "sha512-IXl7o+R9iti9eBW4Wg2hx1xQDig183jj7YLn8F7udNceyfkbn1ZxmzZXuak20gR40D7pIkIY1kYGx5VIGbaHKA==",
+        "dependencies": {}
+      }
+    }
+  },
   "redirects": {
-    "https://deno.land/std/fs/mod.ts": "https://deno.land/std@0.209.0/fs/mod.ts"
+    "https://deno.land/std/fs/mod.ts": "https://deno.land/std@0.209.0/fs/mod.ts",
+    "https://esm.run/@masx200/mini-cli-args-parser@1.1.0": "https://cdn.jsdelivr.net/npm/@masx200/mini-cli-args-parser@1.1.0/+esm",
+    "https://esm.run/@masx200/mini-cli-args-parser@1.1.0/": "https://cdn.jsdelivr.net/npm/@masx200/mini-cli-args-parser@1.1.0/"
   },
   "remote": {
+    "https://cdn.jsdelivr.net/npm/@masx200/mini-cli-args-parser@1.1.0/+esm": "d73204944e596e1263c491061fd39d73cdb229a798a674b8c0de03d26b9cab53",
     "https://deno.land/std@0.208.0/assert/assert.ts": "9a97dad6d98c238938e7540736b826440ad8c1c1e54430ca4c4e623e585607ee",
     "https://deno.land/std@0.208.0/assert/assertion_error.ts": "4d0bde9b374dfbcbe8ac23f54f567b77024fb67dbb1906a852d67fe050d42f56",
     "https://deno.land/std@0.209.0/assert/assert.ts": "e265ad50a9341f3b40e51dd4cb41ab253d976943ba78a977106950e52e0302ab",
