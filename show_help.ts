@@ -9,6 +9,8 @@ export function show_help() {
                 description: "download_openwrt_software_repositories",
                 usages: [
                     `deno run -A "C:/\Documents/\extract_openwrt_-software_repositories_package_urls/\download_openwrt_software_repositories.ts"  --rpcurl=http://localhost:16800/jsonrpc --repositories_url=https://downloads.openwrt.org/releases/23.05.2/targets/ramips/mt7621/packages/ --download_folder=C:/openwrt软件包镜像源/releases/23.05.2/targets/ramips/mt7621/packages/`,
+
+                    `deno run -A "C:/\Documents/\extract_openwrt_software_repositories_package_urls/\download_openwrt_software_repositories.ts"  --help`,
                 ],
                 arguments: {
                     help: {
