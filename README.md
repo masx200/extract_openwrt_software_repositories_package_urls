@@ -22,3 +22,31 @@ URL，并将这些 URL
 的读写文件方法来读取和写入文件。函数还使用了 Node.js 的 readline
 模块来从控制台读取用户输入。最后，函数通过异步函数和 async/await
 关键字来处理异步操作。
+
+## 使用说明
+
+```json
+{
+    "name": "download_openwrt_software_repositories",
+    "description": "download_openwrt_software_repositories",
+    "usage": "deno run -A \"C:/Documents/extract_openwrt_-software_repositories_package_urls/download_openwrt_software_repositories.ts\"  --rpcurl=http://localhost:16800/jsonrpc --repositories_url=https://downloads.openwrt.org/releases/23.05.2/targets/ramips/mt7621/packages/ --download_folder=C:/openwrt软件包镜像源/releases/23.05.2/targets/ramips/mt7621/packages/",
+    "arguments": {
+        "help": {
+            "description": "show help",
+            "required": false
+        },
+        "rpcurl": {
+            "description": "aria2 json rpc url",
+            "required": true
+        },
+        "repositories_url": {
+            "description": "openwrt repositories url",
+            "required": true
+        },
+        "download_folder": {
+            "description": "download folder ",
+            "required": true
+        }
+    }
+}
+```
