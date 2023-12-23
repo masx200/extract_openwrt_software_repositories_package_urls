@@ -18,7 +18,7 @@ if (import.meta.main) {
                 console.error(e);
 
                 Deno.exit(1);
-            },
+            }
         )
         .finally(() => Deno.exit(0)); // 程序执行完毕，退出Deno进程。
 }
@@ -62,7 +62,7 @@ async function main() {
         await download_openwrt_software_repositories(
             repositories_url,
             download_folder,
-            rpcurl,
+            rpcurl
         );
     }
 }
@@ -78,7 +78,7 @@ async function main() {
 export async function download_openwrt_software_repositories(
     repositories_url: string,
     download_folder: string,
-    rpcurl: string,
+    rpcurl: string
 ) {
     console.log({ repositories_url, download_folder, rpcurl });
 
@@ -87,7 +87,7 @@ export async function download_openwrt_software_repositories(
     assert(rpcurl);
 
     const response = await fetch_debug(
-        new URL(repositories_url + "/" + "Packages.gz").href,
+        new URL(repositories_url + "/" + "Packages.gz").href
     );
     assert(response.ok, response.status + " " + response.statusText);
 
@@ -99,8 +99,8 @@ export async function download_openwrt_software_repositories(
 
     const text = await new Response(
         new Response(PackagesGz).body?.pipeThrough(
-            new DecompressionStream("gzip"),
-        ),
+            new DecompressionStream("gzip")
+        )
     ).text();
 
     const PackageFilePath = join(download_folder, "Packages");
@@ -109,7 +109,7 @@ export async function download_openwrt_software_repositories(
     await extract_openwrt_Software_repositories_package_urls(
         repositories_url,
         PackageFilePath,
-        join(download_folder, "urls.txt"),
+        join(download_folder, "urls.txt")
     );
 
     const file_urls = (
@@ -117,8 +117,22 @@ export async function download_openwrt_software_repositories(
     )
         .split("\n")
         .filter(Boolean);
-
-    await requestjsonrpc(makerpcdata(file_urls, download_folder), rpcurl);
+    const array: string[] = file_urls; //[...]; // your array here
+    /* connection error: 你的主机中的软件中止了一个已建立的连接。 (os error 10053)
+    
+    你可以使用 TypeScript 的 for...of 循环和 Array.prototype.slice 方法来每次打印100项数组元素。以下是一个示例：
+    
+    在这个示例中，我们首先定义了一个数组 array。然后，我们使用一个 while 循环来迭代数组。在每次循环中，我们使用 slice 方法获取从当前索引 i 到 i + 100 的数组片段，并将其打印出来。然后，我们将 i 增加100，以便在下一次循环中获取下一个100个元素。这个过程会一直重复，直到我们已经打印了所有的数组元素。 */
+    let i = 0;
+    while (i < array.length) {
+        //console.log(array.slice(i, i + 100));
+        await requestjsonrpc(
+            makerpcdata(array.slice(i, i + 100), download_folder),
+            rpcurl
+        );
+        i += 100;
+    }
+    //  await requestjsonrpc(makerpcdata(file_urls, download_folder), rpcurl);
     // );
     // .body.pipeThrough(new DecompressionStream("gzip"))
     // ).text()
